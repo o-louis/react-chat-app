@@ -3,6 +3,8 @@ import React from 'react';
 import Home from './components/Home/Home';
 import Room from './components/Room/Room';
 
+import "./App.css"
+
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {

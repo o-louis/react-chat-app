@@ -1,0 +1,81 @@
+.wrapper {
+    background-color: #4169E1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.wrapper h1 {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.btns-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-top: 40px;
+}
+
+.btns-container button,
+.wrapper form button {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.6rem;
+    background-color: #F4F3EE  ;
+    color: black;
+}
+
+.btns-container button:hover,
+.btns-container button:active,
+.wrapper form button:hover,
+.wrapper form button:active {
+    background-color: black;
+    color: white;
+}
+
+.wrapper form {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper form input,
+.wrapper form button {
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 1.6rem;
+}
+
+.wrapper form input {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.back {
+    padding: 10px;
+    align-self: flex-start;
+    background-color: #8FCD67;
+    color: white;
+    border-radius: 4px;
+    font-size: 1.5rem;
+}
+
+.room-name {
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 1.7rem;
+    background-color: #B2DDFF;
+    margin-bottom: 10px;
+    color: grey;
+}
