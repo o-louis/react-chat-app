@@ -18,6 +18,8 @@
     width: 100%;
     max-width: 900px;
     padding-left: 20px;
+    background-color: white;
+    z-index: 2;
 }
 
 .input-message input {

@@ -25,7 +25,8 @@ const Room = (props) => {
         })
     }, [])
 
-    const handleClick = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         socket.emit('send-message', message);
         setMessage("");
     }
@@ -44,15 +45,15 @@ const Room = (props) => {
                 })}
             </ScrollToBottom>
 
-            <div className="input-message">
+            <form className="input-message" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={message}
                     placeholder="Type a message"
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                <button onClick={handleClick}>Send</button>
-            </div>
+                <button type="submit" >Send</button>
+            </form>
         </div>
     )
 }
