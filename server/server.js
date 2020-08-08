@@ -4,8 +4,6 @@ const io = require('socket.io')(server);
 
 const { createUser, findUser, deleteUser } = require('./users');
 
- 
-
 io.on('connection', socket => {
 
     socket.on('new-user-connected', ({name, room}) => {
@@ -22,6 +20,14 @@ io.on('connection', socket => {
     socket.on('send-message', message => {
         const user = findUser(socket.id);
         io.in(user.room).emit('message', { name: user.name, message});
+    });
+
+    socket.on('typing', function(typing){
+        const user = findUser(socket.id);
+        console.log(typing)
+        if (typing) {
+            socket.broadcast.to(user.room).emit('notif-typed', `${user.name} is typing`);
+        }
     });
 
     socket.on('disconnect', () => {

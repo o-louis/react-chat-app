@@ -105,3 +105,10 @@
     position: relative;
     right: 10px
 }
+
+.typed-message {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    padding-right: 40px;
+}

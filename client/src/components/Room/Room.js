@@ -10,6 +10,9 @@ const Room = (props) => {
     const [username, setUserName] = useState("");
     const [message, setMessage] = useState("");
     const [conversation, setConversation] = useState([]);
+    const [typedMessage, setTypedMessage] = useState("");
+
+    let timeout = null;
     
 
     useEffect(() => {
@@ -25,10 +28,29 @@ const Room = (props) => {
         })
     }, [])
 
+    useEffect(() => {
+        socket.on('notif-typed', message => {
+            setTypedMessage(message);
+        });
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         socket.emit('send-message', message);
         setMessage("");
+    }
+
+    const timeoutFunction = () => {
+        setTypedMessage("");
+        socket.emit('typing', false);
+        timeout = null;
+    }
+
+    const handleChange = (e) => {
+        setMessage(e.target.value);
+        if (timeout) clearTimeout(timeout);
+        socket.emit('typing', true);
+        timeout = setTimeout(timeoutFunction, 2000);
     }
 
     return (
@@ -45,12 +67,16 @@ const Room = (props) => {
                 })}
             </ScrollToBottom>
 
+            
             <form className="input-message" onSubmit={handleSubmit}>
+                { typedMessage &&
+                    <p className="typed-message">... {typedMessage}</p>}
+
                 <input
                     type="text"
                     value={message}
                     placeholder="Type a message"
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={handleChange}
                 />
                 <button type="submit" >Send</button>
             </form>
