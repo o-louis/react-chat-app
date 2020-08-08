@@ -1,0 +1,105 @@
+.room-chat {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    max-width: 900px;
+    margin:  0 auto;
+    background-color: white;
+}
+
+.input-message {
+    position: fixed;
+    bottom: 0;
+    padding: 20px 10px;
+    border-top: 0.1px solid #D3D3D3;
+    width: 100%;
+    max-width: 900px;
+    padding-left: 20px;
+}
+
+.input-message input {
+    padding: 10px;
+    border-radius: 3px;
+    width: 80%;
+    margin-right: 10px;
+    background-color: #DCDCDC;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+}
+
+.input-message button {
+    height: 35px;
+    width: 15%;
+    text-align: center;
+    background-color: #4169E1;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.input-message button:hover,
+.input-message button:active {
+    background-color: black;
+    color: white;
+}
+
+
+.message-container {
+    padding: 20px;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 75px;
+    overflow-y: scroll;
+}
+
+.message-container > div {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.message-container > div::-webkit-scrollbar,
+.message-container::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.speech-bubble {
+    border-radius: 20px;
+    background-color:#DCDCDC;
+    padding: 10px 20px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.user {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.other {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.other .speech-bubble{
+    background-color: #4169E1;
+    color: white;
+}
+
+.author {
+    color: grey;
+    margin-bottom: 2px;
+    font-size: 1.3rem;
+    align-self: flex-end;
+    position: relative;
+    right: 10px
+}

@@ -23,6 +23,7 @@ button, a {
 #root {
     width: 100vw;
     height: 100vh;
+    background-color: #4169E1;
 }
 
 .wrapper {

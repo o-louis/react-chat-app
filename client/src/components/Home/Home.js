@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import CreateForm from "./CreateForm";
-import JoinForm from "./JoinForm";
+import CreateForm from "./CreateForm/CreateForm";
+import JoinForm from "./JoinForm/JoinForm";
 
 import { Redirect } from 'react-router-dom';
 
@@ -21,13 +21,10 @@ const Home = () => {
             return;
         }
         setSubmitted(true);
-        console.log(room, username);
     };
 
     const handleClick = (event) => {
-        setRoom("");
-        setError("");
-        setUserName("");
+        setRoom("");setError("");setUserName("");
         if (event === "create") {
             setUserAction("create");
         } else {
@@ -75,7 +72,7 @@ const Home = () => {
                                 />
                             )
                         }
-                        <button className="back" onClick={() => setUserAction("")}>Back </button>
+                        <button className="back" onClick={() => setUserAction("")}>Back</button>
                     </div>
                 )
             }

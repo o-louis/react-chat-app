@@ -4,7 +4,7 @@ const min = 1000;
 const max = 9999;
 
 const generateRoomID = () => {
-    return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.floor(Math.random() * (max - min + 1) + min).toString();
 };
 
 const CreateForm = ({ room, error, setRoom, username, setUsername, handleSubmit }) => {
