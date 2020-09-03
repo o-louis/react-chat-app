@@ -16,7 +16,7 @@ const Room = (props) => {
     
 
     useEffect(() => {
-        socket = io('https://112f55c80099.ngrok.io');
+        socket = io('http://localhost:2000');
         const { name, room } = props.location.state;
         setUserName(name);
         socket.emit("new-user-connected", { name, room });

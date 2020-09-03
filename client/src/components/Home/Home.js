@@ -43,7 +43,7 @@ const Home = () => {
 
     return (
         <div className="wrapper">
-            <h1>React chat app</h1>
+            <h1>Reachat</h1>
 
             {
                 !userAction ? (
