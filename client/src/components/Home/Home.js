@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CreateForm from "./CreateForm/CreateForm";
 import JoinForm from "./JoinForm/JoinForm";
 
+import { AuthContext } from '../../context/auth';
 import { Redirect } from 'react-router-dom';
 
 import "./Home.css";
@@ -14,12 +15,15 @@ const Home = () => {
     const [error, setError] = useState("");
     const [submitted, setSubmitted] = useState(false);
 
+    const { setLoggedIn } = React.useContext(AuthContext)
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!username || !room) {
             setError("Please fill in all fields");
             return;
         }
+        setLoggedIn(true);
         setSubmitted(true);
     };
 

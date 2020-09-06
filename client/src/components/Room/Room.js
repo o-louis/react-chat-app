@@ -13,7 +13,6 @@ const Room = (props) => {
     const [typedMessage, setTypedMessage] = useState("");
 
     let timeout = null;
-    
 
     useEffect(() => {
         socket = io('http://localhost:2000');
@@ -40,17 +39,15 @@ const Room = (props) => {
         setMessage("");
     }
 
-    const timeoutFunction = () => {
-        setTypedMessage("");
-        socket.emit('typing', false);
-        timeout = null;
-    }
-
     const handleChange = (e) => {
         setMessage(e.target.value);
-        if (timeout) clearTimeout(timeout);
         socket.emit('typing', true);
-        timeout = setTimeout(timeoutFunction, 2000);
+        timeout = setTimeout(clearTime, 2000);
+    }
+
+    const clearTime = () => {
+        if (timeout) clearTimeout(timeout);
+        socket.emit('typing', false);
     }
 
     return (
@@ -69,8 +66,7 @@ const Room = (props) => {
 
             
             <form className="input-message" onSubmit={handleSubmit}>
-                { typedMessage &&
-                    <p className="typed-message">... {typedMessage}</p>}
+                <p className="typed-message">{typedMessage}</p>
 
                 <input
                     type="text"

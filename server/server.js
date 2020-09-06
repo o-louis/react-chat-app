@@ -26,7 +26,9 @@ io.on('connection', socket => {
         const user = findUser(socket.id);
         console.log(typing)
         if (typing) {
-            socket.broadcast.to(user.room).emit('notif-typed', `${user.name} is typing`);
+            socket.broadcast.to(user.room).emit('notif-typed', `..${user.name} is typing`);
+        } else {
+            socket.broadcast.to(user.room).emit('notif-typed', ``);
         }
     });
 
