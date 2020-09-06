@@ -15,7 +15,7 @@ const Room = (props) => {
     let timeout = null;
 
     useEffect(() => {
-        socket = io('http://localhost:2000');
+        socket = io('https://reachat-olouis.herokuapp.com');
         const { name, room } = props.location.state;
         setUserName(name);
         socket.emit("new-user-connected", { name, room });
